@@ -2,7 +2,7 @@
 A Celluar Automata  in which an ant traverses a grid while creating various patterns. In this project I use the console and ansi escape codes for the drawing
 
 ## C++
-One advantage of C++ over Go and Odin in this task is the fact that you can initialize an array with any value by supplying a single value
+One advantage of C++ over Go in this task is the fact that you can initialize an array with any value by supplying a single value
 ```c++
 // initialize board with all values set to 1
 int board[width*height]{1};
@@ -36,7 +36,7 @@ const val = if ( true ) 1 else 2;
 C++ acomplishes the same thing with the ternary operator ?, but Odin and Go do not have a way to do this
 
 I like Zig's switch syntax the most out of the 4, although it is not as flexible in terms of types as Go and Odin
-
+ 
 One thing that is kind of annoying with Zig is that function parameters cannot shadow globals which means that I could not refer to ant_x as such in the move function unlike the other languages. That being said I'll admit that while somewhat inconvenient it is actually safer and more logical because in Zig you never lose access to the global, whereas in Go and Odin you cannot refer to the global anymore because of the shadowing. C++'s solution to this is the scope resolution operator which would allow you to get the global ant_x with ::ant_x inside the move function
 
 I also don't like Zig's while loop. I prefer the traditional C for loop because the initialization is part of the construct, whereas with Zig you must define the initial value outside of the while. In another test for drawing pixels, I found it was easy to forget to increment values for loops since it is not part of the loop definition
