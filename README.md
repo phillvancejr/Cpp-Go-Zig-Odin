@@ -15,12 +15,11 @@ TODO
 - [X] Text Battle Simulation
 - [ ] Build System
 - [ ] Echo Server
-- [ ] Command Line Chat
 - [ ] Parallel Echo dumb "Ai"
 - [ ] Hot Reloading
 - [ ] Super Tiny Compiler
 - [ ] Music App
-- [ ] OpenGl Triangle
+- [X] OpenGl Triangle
 - [ ] Mini Platformer
 - [ ] Pong Multiplayer
 - [ ] Software 3D

@@ -5,7 +5,7 @@ import "core:c"
 import "core:fmt"
 import "core:strings"
 import "core:encoding/json"
-foreign import curl "system:curl"
+import "libcurl"
 
 Person :: struct {
     name: string,
@@ -26,24 +26,10 @@ Person :: struct {
     url:string,
 }
 
-CURL :: struct{}
-
-CURLOPT_URL :: 10002
-CURLOPT_WRITEFUNCTION :: 20011
-CURLE_OK :: 0
-
-@(default_calling_convention="c")
-foreign curl {
-    curl_easy_init :: proc() -> ^CURL ---
-    curl_easy_cleanup :: proc(handle: ^CURL) ---
-    curl_easy_setopt :: proc(handle: ^CURL, option: int, #c_vararg parameter: ..any) -> int ---
-    curl_easy_perform :: proc(easy_handle: ^CURL) -> int ---
-    curl_easy_strerror :: proc(errornum: int) -> cstring ---
-}
-
 response := strings.make_builder_none()
 
 main :: proc() {
+    using libcurl
     strings.init_builder_none(&response)
 
     curl := curl_easy_init()

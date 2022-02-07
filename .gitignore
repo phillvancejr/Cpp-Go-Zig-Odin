@@ -6,6 +6,8 @@ headers.hpp.gch
 overview.txt
 TEMPLATE.md
 deps/stb_leg
+deps/stb_leg/**
+
 battle/cc_battle
 battle/go_battle
 battle/zig_battle

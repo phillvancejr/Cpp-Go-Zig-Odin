@@ -19,27 +19,35 @@ else
 headers=-include $(name)/headers.hpp
 endif
 
-includes=-Ideps
+libs=-L/usr/local/lib
+includes=-I/usr/local/include -Ideps
+
 ifeq ($(name), ppm_png)
-libs =-Ldeps/stb
+libs +=-Ldeps/stb
 libs +=-lstb_image_write
 endif
 
 ifeq ($(name), http_json)
-libs =-lcurl
+libs +=-lcurl
+endif
+
+ifeq ($(name), opengl)
+libs +=-lglfw3 -framework Cocoa -framework IOKit -framework OpenGL
+libs +=-Ldeps/glad -lglad
+includes += -Ideps/glad/include
 endif
 
 std=-std=c++17
 all: cc go zig odin
 
 cc: $(wildcard $(name)/*.cc)
-	clang++ $(std) -o $(name)/cc_$(name) $(deps) $(libs) $(headers) $(name)/$(name).cc
+	clang++ $(std) -o $(name)/cc_$(name) $(includes) $(libs) $(headers) $(opt) $(name)/$(name).cc
 	$(call bin,cc)
 go: $(wildcard $(name)/*.go)
 	GO111MODULE="off" go build -o $(name)/go_$(name)  $(name)/$(name).go
 	$(call bin,go)
 zig: $(wildcard $(name)/*.zig)
-	zig build-exe -femit-bin=$(name)/zig_$(name) $(includes) $(libs) $(name)/$(name).zig
+	zig build-exe -femit-bin=$(name)/zig_$(name) $(includes) $(libs) $(opt) $(name)/$(name).zig
 	$(call bin,zig)
 odin: $(wildcard $(name)/*.odin)
 	odin build $(name)/$(name).odin -out:$(name)/odin_$(name)
