@@ -5,7 +5,7 @@ The http bit was easy thanks to curl, but I did have to go get a [json](https://
 ## Go
 The winner by far, easy built in http and json. One of the nicest things was that all of the fields did not need to be defined in the struct, only the ones I wanted to use. No contest, Go wins this.
 ## Zig
-Pretty Good, like C++ I used libcurl but unlike C++ I was able to pass a function inline instead of needed to define a function at the global scope. Admittedly Zig's version of this is somewhat strange: you need to create an anonymous struct a method that you then pass as the function
+Pretty Good, like C++ I used libcurl but unlike C++ I was able to pass a function inline instead of needing to define a function at the global scope. Admittedly Zig's version of this is somewhat strange: you need to create an anonymous struct a method that you then pass as the function
 ```js
 fn doSomething(f: fn()void) void {
     f();
