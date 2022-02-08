@@ -45,7 +45,7 @@ int main() {
             break;
         }
         if (len) {
-            printf("recieved: %s", buf);
+            printf("received: %s", buf);
             // memset(buf,0,sizeof(buf));
             msg = "echo: " + msg + "\n";
             send(client, msg.data(), msg.size(), 0);

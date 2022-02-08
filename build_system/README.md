@@ -1,62 +1,49 @@
-# Number Guesser
-Simple Console number guesser, using time seeded random number generation
+# Build System
+Testing build systems for the languages by linking to a c library. I'll use this simple c function in a static library
+```c
+int add_five(int num){ return num + 5; }
+```
+For C++, Go and Zig this is a silly example because all 3 could just directly import add.c but it illustrates how it would work with more complex libraries that maybe have been pre built
 ## C++
-C++ was shorter and simpler than the others for this simple program due to ease of working with strings and getting input with scanf
+C++ doesn't have a standardized way of linking to libraries in the langauge (windows compilers have a #pragma for it), and build systems are platform specific. I'm on Mac so I used a makefile and windows would use a .bat file or a visual studio solution/project. There is also Cmake which is slightly more cross platform, sort of, but it will produce a makefile anyway so I just used that. Technically Cmake is a decent solution given the current state of C++ building, but C++ is definitely last place in this task because as the other languages show, it could be much easier.
 ## Go
-Go's implementation was also very simple. The code is about as long as the zig and odin versions due to the verbosity of error handling and the fact that you can't have single line if/else statements
+Go like Odin don't really use an external build system, instead linking to other code is built into the langauge via the package system or Cgo for C in the case of Go
 ## Zig
-As expected zig was the most verbose and showed the complexity of string operations in the language. Zig doesn't have strings, it only has slices of bytes and so to copy into strings you have to use std.mem.copy whereas in the other langauges you can just assign the new string.
+As mentioned above Zig, like C++ and Go could just include the add.c file and it would work. I could also add C source files in the build.zig
 ```js
-var s = "string";
-std.mem.copy(u8, s, "another string");
+exe.addCSourceFile("add.c", &[_][]const u8);
 ```
-other 3 languages
-```c++
-auto s = "string";
-s = "another string";
-```
-Zig's very strict type system showed itself even in this little program via the required @ casts in multiple places
-
-I did like the error and optional handling seen in readNum
-```js
-if ( stdin.readUntilDelimiterOrEof(buf[0..], '\n') catch return @intCast(i32,-1) ) | input |  {
-        var num = input;
-
-        if ( !std.ascii.isDigit(num[0])) std.mem.copy(u8, num, "-1");
-
-        return std.fmt.parseInt(i32, num , 10);
-
-    } else return @intCast(i32, -1);
-```
-if stdin.readUntilDelimiterOrEof returns and error we return -1 from the function, otherwise unwrap the optional it returns and capture it as `input`, however if the input is null for some reason then else also returns -1
-
 ## Odin
-Odin is an odd mix of verbosity and simplicty. The code is very simple but reading from stdin is surprisingly verbose, fmt.scanf would be a welcome addition. If it wasn't for the verbosity involved in getting input and converting it the program would be very short. But even being as long as zig in terms of number of lines, the code is as simple as the go or c++ versions, except for the stdin and conversion business. Odin's or_else statement worked well for the error handling. My only gripe with it is that it cannot be used in main
-
+Similar to Go the package system functions as the build system and the foreign import constructs can be used for C. Unfortunately you must write manual bindings, though this can be aided with [odin-bindgen](https://github.com/Breush/odin-binding-generator)
+### overall rankings
+Zig is in 1st because its build system uses Zig. I tied Odin and Go for 2nd, Go dropped to 2nd because even though it is easy to link with C, it has an overhead for calling into it, and Odin dropped to 2nd because you have to write manual bindings. C++ is last because building is not standardized and the best solutions all require learning a new scripting language
+1. Zig
+2. Odin Go (tie)
+3. C++
 ### compile times
 ranked according to cached times
 <table>
     <th>lang</th>
-    <th>cold</th>
     <th>cached</th>
+    <th>cold</th>
     <tr>
         <td>1. c++</td> 
-        <td>0.071s</td>
-        <td>0.232s</td>
+        <td>0.098s</td>
+        <td>0.469s</td>
     </tr>
     <tr>
         <td>2. go</td> 
-        <td>0.100s</td>
-        <td>2.08s</td>
+        <td>0.125s</td>
+        <td>1.005s</td>
     </tr>
     <tr>
         <td>3. odin</td> 
-        <td>0.762s</td>
-        <td>1.629s</td>
+        <td>0.697s</td>
+        <td>1.307s</td>
     </tr>
     <tr>
         <td>4. zig</td> 
-        <td>0.903s</td>
-        <td style="color:red">4.408s</td>
+        <td>1.156s</td>
+        <td style="color:red">6.922s</td>
     </tr>
 </table>

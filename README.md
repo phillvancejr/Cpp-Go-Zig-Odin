@@ -15,6 +15,7 @@ lower score is better. No scores for the trival programs like Battle and Guess N
     <th>http & json</th>
     <th>opengl</th>
     <th>echo server</th>
+    <th>build system</th>
     <th>total</th>
     <tr>
         <td>c++</td> 
@@ -22,7 +23,8 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="http">2</td>
         <td name="opengl">2</td>
         <td name="echo server">2</td>
-        <td name="total">7</td>
+        <td name="build system">3</td>
+        <td name="total">10</td>
     </tr>
     <tr>
         <td>go</td> 
@@ -30,14 +32,16 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="http">1</td>
         <td name="opengl">4</td>
         <td name="echo server">1</td>
-        <td name="total">7</td>
+        <td name="build system">2</td>
+        <td name="total">9</td>
     </tr>
     <tr>
         <td>zig</td> 
         <td name="ppm">2</td>
         <td name="http">3</td>
         <td name="opengl">3</td>
-        <td name="echo server">2</td>
+        <td name="echo server">1</td>
+        <td name="build system">1</td>
         <td name="total">10</td>
     </tr>
     <tr>
@@ -46,7 +50,8 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="http">4</td>
         <td name="opengl">1</td>
         <td name="echo server">1</td>
-        <td name="total">7</td>
+        <td name="build system">2</td>
+        <td name="total">9</td>
     </tr>
 </table>
 
@@ -56,7 +61,7 @@ TODO
 - [X] Langton's Ant
 - [X] PPM and PNG
 - [X] Text Battle Simulation
-- [ ] Build System
+- [X] Build System
 - [X] Echo Server
 - [ ] Parallel Echo dumb "Ai"
 - [ ] Hot Reloading

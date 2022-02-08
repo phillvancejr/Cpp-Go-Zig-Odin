@@ -7,6 +7,9 @@ overview.txt
 TEMPLATE.md
 deps/stb_leg
 deps/stb_leg/**
+**/client
+**/*.o
+**/*.a
 
 battle/cc_battle
 battle/go_battle

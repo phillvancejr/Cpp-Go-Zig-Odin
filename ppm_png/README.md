@@ -4,7 +4,7 @@ Draws a 2x2 black and white checker pattern. Uses the [stb library](https://gith
 ## C++
 Very simple and straight forward, no issues.
 ## Go
-Go's implementation is interesting because Go has png writing in its standard library. To enable it I implemented the image.Image interface for my pixel buffer and then I could pass that to png.Encode and it just worked. Pretty cool, although I'm concerned that the pixel buffer might be copied at invocations of image.Image's At method becaues the reciever is a by value receiver.
+Go's implementation is interesting because Go has png writing in its standard library. To enable it I implemented the image.Image interface for my pixel buffer and then I could pass that to png.Encode and it just worked. Pretty cool, although I'm concerned that the pixel buffer might be copied at invocations of image.Image's At method becaues the receiver is a by value receiver.
 ## Zig
 Similar to the C++ version, but unfortunately unlike stb_load_from_memory, zig cannot correctly understand the stbi_write_png function in header only mode, so I had to compile the stb library to a static library to get it to work. Not a huge deal but I had some false confidence/high expections since it did handle stb_load_from_memory in header only mode in anotehr project. Nothing to write home about, straight forward and simple
 ## Odin

@@ -25,7 +25,7 @@ pub fn main() !void {
 
         if ( len > 0 ) {
         
-            print("recieved: {s}", .{buffer});
+            print("received: {s}", .{buffer});
             const prefix = "echo: ";
             var reply = try allocator.alloc(u8, prefix.len + len + 1);
             defer allocator.free(reply);

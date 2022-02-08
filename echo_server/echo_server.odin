@@ -41,7 +41,7 @@ main :: proc() {
                 net.TCP_Send(client, raw_data(bye), cast(i32)len(bye))
                 break
             }
-            fmt.print("recieved:", msg)
+            fmt.print("received:", msg)
             append(&reply, ..buf[:length])
             append(&reply, '\n')
             net.TCP_Send(client, raw_data(reply), cast(i32)len(reply))
