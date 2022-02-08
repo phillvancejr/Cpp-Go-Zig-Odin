@@ -22,6 +22,11 @@ pub fn main() void {
 It is not necessarily what you would expect, but this way, Zig manages to implement inline callbacks without introducing new syntax unlike C++. And also it actually worked, unlike the C++ lambda. The use of the c library was almost as easy C++, the only downside being the c. prefix although you could argue that this brings proper namespaces to c libraries. The issue I ran into was actually with the std.json module. Apparently json.parse can run into problems with what I assume is recursive parsing of fields and I had to use `@setEvalBranchQuota` set to a high number to prevent the error. I'm not sure if this is an intentional feature added to control the amount of branches taken, sort of like a timeout, or if it is a fix for a bug that may be fixed as the language matures. In any case I had to figure it out by searching through zig's github issues. Zig, like Odin needs more documentation, and I put Zig in 3rd place just becaues I didn't have to write any bindings unlike Odin.
 ## Odin
 Not bad. Odin, doesn't currently have any http capabilities and so like Zig and C++ I decided to use libcurl. I needed to write bindings and decided to use the odin-bindgen project which can create odin bindings from a C header file. The tool isn't perfect but the best way I found to work with it is to put the definitions you need into a file and only generate bindings on that instead of trying to work on an enormous file with potentially crazy C macro funny business. It worked well. I couldn't find documentation on working with strings but figured out that I could use the strings.Builder to construct one. The json module was easy to figure out how to use, but I did have to read the std library to understand it. Fortunately because of how clean Odin code looks it wasn't a problem. Aside from the manual bindings, my only real issue with Odin here is that it just needs more thorough documentation. 4th place only because I had to write bindings even though they were very easy thanks to odin bindgen. It is worth noting that the author of odin-bindgen will end support for it at the end of 2022, so it may need to be forked and maintained.
+### overall rankings
+1. Go
+2. C++
+3. Zig
+4. Odin
 ### compile times
 ranked according to cached times.
 <table>

@@ -9,6 +9,9 @@ Go's implementation is interesting because Go has png writing in its standard li
 Similar to the C++ version, but unfortunately unlike stb_load_from_memory, zig cannot correctly understand the stbi_write_png function in header only mode, so I had to compile the stb library to a static library to get it to work. Not a huge deal but I had some false confidence/high expections since it did handle stb_load_from_memory in header only mode in anotehr project. Nothing to write home about, straight forward and simple
 ## Odin
 Odin was actually similar to Go in that it has png writing capabilities in its standard library because it includes the stb libraries in its vendor library. So that is pretty nice. The implementation looks the simplest out of all the languages as i expected. The only downside (if you can call it that) was that I did have to run make to build the stb library into a static library, but that file is provided with the compiler so it was easy. I think this one might be a tie between everyone, maybe Odin, C++ and Go for first and Zig in 1.5th place
+### overall rankings
+1. Odin, C++, Go (tie)
+2. Zig
 ### compile times
 ranked according to cached times
 <table>
