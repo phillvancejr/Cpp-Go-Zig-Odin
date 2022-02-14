@@ -6,6 +6,7 @@ A series of small test programs to figure out which of the languages I like best
 ## Go
 ## Zig
 ## Odin
+## *D
 
 ## My rankings 
 lower score is better. No scores for the trival programs like Battle and Guess Number
@@ -16,6 +17,7 @@ lower score is better. No scores for the trival programs like Battle and Guess N
     <th>opengl</th>
     <th>echo server</th>
     <th>build system</th>
+    <th>platformer</th>
     <th>total</th>
     <tr>
         <td>c++</td> 
@@ -24,7 +26,8 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="opengl">2</td>
         <td name="echo server">2</td>
         <td name="build system">3</td>
-        <td name="total">10</td>
+        <td name="platformer">1</td>
+        <td name="total">11</td>
     </tr>
     <tr>
         <td>go</td> 
@@ -33,6 +36,7 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="opengl">4</td>
         <td name="echo server">1</td>
         <td name="build system">2</td>
+        <td name="platformer">eliminated</td>
         <td name="total">9</td>
     </tr>
     <tr>
@@ -42,7 +46,8 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="opengl">3</td>
         <td name="echo server">1</td>
         <td name="build system">1</td>
-        <td name="total">10</td>
+        <td name="platformer">4</td>
+        <td name="total">14</td>
     </tr>
     <tr>
         <td>odin</td> 
@@ -51,7 +56,18 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="opengl">1</td>
         <td name="echo server">1</td>
         <td name="build system">2</td>
-        <td name="total">9</td>
+        <td name="platformer">3</td>
+        <td name="total">12</td>
+    </tr>
+    <tr>
+        <td>d</td> 
+        <td name="ppm">n/a</td>
+        <td name="http">n/a</td>
+        <td name="opengl">n/a</td>
+        <td name="echo server">n/a</td>
+        <td name="build system">n/a</td>
+        <td name="platformer">2</td>
+        <td name="total">tbd</td>
     </tr>
 </table>
 
@@ -63,12 +79,8 @@ TODO
 - [X] Text Battle Simulation
 - [X] Build System
 - [X] Echo Server
-- [ ] Parallel Echo dumb "Ai"
-- [ ] Hot Reloading
-- [ ] Super Tiny Compiler
-- [ ] Music App
 - [X] OpenGL Triangle
-- [ ] Mini Platformer
-- [ ] Pong Multiplayer
+- [X] Mini Platformer - One Lone Coder port
+- [X] Pong
 - [ ] Software 3D
 - [ ] Hunt the Wumpus

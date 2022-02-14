@@ -1,0 +1,8 @@
+raylib preprocessor prep
+cat raylib.h | clang -DGL_SILENCE_DEPRECATION -DPLATFORM_DESKTOP -Iexternal/glfw/include -I/external/glfw/deps/mingw -E - -o - | grep -v "# " > raylib.d
+
+raylib
+dmd ray_win libraylib.a -L-framework -LCoreVideo -L-framework -LIOKit -L-framework -LCocoa -L-framework -LOpenGL -betterC
+
+minifb
+dmd -Llibminifb.a -L-framework -LCocoa -L-framework -LMetal -L-framework -LMetalKit -J. -betterC window.d

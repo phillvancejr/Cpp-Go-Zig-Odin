@@ -1,7 +1,14 @@
-default: all
+#default: all
+default: all2
+
+ifneq ($(MAKECMDGOALS),check)
+ifneq ($(MAKECMDGOALS),pbs)
 ifndef name
 $(error name is not set)
 endif
+endif
+endif
+
 
 ifdef run
 bin=$(name)/$(1)_$(name)
@@ -19,8 +26,12 @@ else
 headers=-include $(name)/headers.hpp
 endif
 
+ifneq ($(MAKECMDGOALS), d)
 libs=-L/usr/local/lib
 includes=-I/usr/local/include -Ideps
+else
+libs=-L-L/usr/local/lib -I. -betterC
+endif
 
 ifeq ($(name), ppm_png)
 libs +=-Ldeps/stb
@@ -36,8 +47,30 @@ libs +=-lglfw3 -framework Cocoa -framework IOKit -framework OpenGL
 libs +=-Ldeps/glad -lglad
 includes += -Ideps/glad/include
 endif
+
+ifeq ($(name), platformer)
+ifeq ($(MAKECMDGOALS), d)
+libs +=-L-framework -LCoreVideo -L-framework -LIOKit -L-framework -LCocoa -L-framework -LOpenGL -Jplatformer -Ldeps/raylib/libraylib.a
+else
+libs +=deps/raylib/libraylib.a
+libs +=-framework CoreVideo -framework IOKit -framework Cocoa -framework OpenGL
+includes +=-Ideps/raylib -Ideps/stb
+endif
+endif
+
+ifeq ($(name), pong)
+ifeq ($(MAKECMDGOALS), d)
+libs +=-L-framework -LCoreVideo -L-framework -LIOKit -L-framework -LCocoa -L-framework -LOpenGL -Jplatformer -Ldeps/raylib/libraylib.a -vgc
+else
+libs +=deps/raylib/libraylib.a
+libs +=-framework CoreVideo -framework IOKit -framework Cocoa -framework OpenGL
+includes +=-Ideps/raylib -Ideps/stb
+endif
+endif
+
 std=-std=c++17
 all: cc go zig odin
+all2: cc d odin
 
 ifeq ($(name), build_system)
 $(error use individual build commands for each language inside the build_system directory)
@@ -55,6 +88,12 @@ odin: $(wildcard $(name)/*.odin)
 	odin build $(name)/$(name)$(num).odin -out:$(name)/odin_$(name)
 	$(call bin,odin)
 
+d: $(wildcard $(name)/$(name).d)
+	dmd $(name)/$(name).d -of=$(name)/d_$(name) $(libs)
+	rm $(name)/d_*.o
+	$(call bin,d)
+
+
 .SILENT: time
 time:
 	{ time $(MAKE) $(lang) name=$(name); } 2>&1 | grep -Eo 'real.*'
@@ -68,8 +107,23 @@ client:
 libadd:
 	clang -c build_system/add.c -o build_system/add.o
 	libtool -static -o build_system/libadd.a build_system/add.o
+
+check: $(wildcard $(name)/*.odin)
+	odin check $(name)/$(name)$(num).odin
+
 create:
 	touch $(name)/$(name).cc
 	touch $(name)/$(name).go
 	touch $(name)/$(name).zig
 	touch $(name)/$(name).odin
+
+# phase 2 after zig and go were eliminated
+create2:
+	touch $(name)/$(name).cc
+	touch $(name)/$(name).d
+	touch $(name)/$(name).odin
+
+
+.PHONY:pbs
+pbs:
+	dmd -betterC -lib pbs/*.d -of=pbs/libpbs.a

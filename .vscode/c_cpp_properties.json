@@ -4,7 +4,9 @@
             "name": "Mac",
             "includePath": [
                 "${default}",
-                "${workspaceFolder}/deps/glad/include"
+                "${workspaceFolder}/deps/glad/include",
+                "${workspaceFolder}/deps/stb",
+                "${workspaceFolder}/deps/raylib"
             ],
             "defines": [],
             "macFrameworkPath": [

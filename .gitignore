@@ -10,6 +10,9 @@ deps/stb_leg/**
 **/client
 **/*.o
 **/*.a
+bc_safe.txt
+dlib.txt
+lang_compiler/
 
 battle/cc_battle
 battle/go_battle
