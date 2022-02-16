@@ -80,7 +80,6 @@ lower score is better. No scores for the trival programs like Battle and Guess N
     </tr>
 </table>
 
-TODO
 - [X] Guess Number
 - [X] Http and Json
 - [X] Langton's Ant
