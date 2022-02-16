@@ -4,6 +4,8 @@ import std.format;
 import std.string;
 import std.algorithm;
 import core.time;
+import core.stdc.stdlib;
+import core.stdc.time;
 
 // import core.stdc.stdio;
 enum width = 210;
@@ -37,6 +39,7 @@ void main() {
     SetTargetFPS(60);
 
     auto last = MonoTime.currTime;
+    srand(cast(uint)time(null));
     while (!WindowShouldClose()) {
         BeginDrawing();
         scope(exit) EndDrawing();
@@ -83,17 +86,37 @@ void update(float dt) {
     if (by <= 0 ) ydir *= -1;
     if (by >= height - bsz) ydir *= -1;
     // score
-    if (bx <= 0) pscore += 1;
-    if (bx >= width - bsz) cpuscore += 1;
+    if (bx <= 0) {
+        cpuscore += 1;
+        reset_ball();
+    }
+    if (bx >= width - bsz) {
+        pscore += 1;
+        reset_ball();
+    }
     // TODO restart ball
 
     bx = clamp(bx, 0.0, width-bsz);
     by = clamp(by, 0.0, height-bsz);
+    // paddle collision player
+    if (xdir == -1 && (bx <= padw * 2 && by >= py && by <= py + padh)) {
+        xdir = 1;
+    }
+    if (xdir == 1 && (bx + bsz >= cpux && by >= cpuy && by <= cpuy + padh)) {
+        xdir = -1;
+    }
 
 }
 
 void rect(int x, int y, int w, int h) {
     DrawRectangle(x * scale, y * scale, w * scale, h * scale, WHITE);
+}
+
+void reset_ball() {
+    xdir = (rand() % 2) == 0 ? 1 : -1 ;
+    ydir = (rand() % 2) == 0 ? 1 : -1 ;
+    bx = width/2-bsz/2;
+    by = bx;
 }
 
 void draw_scores() {

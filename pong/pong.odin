@@ -4,6 +4,7 @@ import "vendor:raylib"
 import "core:fmt"
 import "core:time"
 import "core:strings"
+import "core:math/rand"
 
 width :: 210
 height :: 160
@@ -65,6 +66,7 @@ main :: proc() {
 }
 
 update :: proc(dt: f64) {
+    rand.set_global_seed(cast(u64)time.since(time.Time{0}))
     using raylib
     // ball movement
     bx += bspeed * dt * xdir
@@ -73,7 +75,7 @@ update :: proc(dt: f64) {
     if IsKeyDown(.UP) do py -= pspeed * dt
     if IsKeyDown(.DOWN) do py += pspeed * dt
     // cpu follow ball
-    cpuy = by
+    cpuy = by / 2
     // clamp everything
     py = clamp(py, 0.0, height-padh)
     cpuy = clamp(cpuy, 0.0, height-padh)
@@ -83,17 +85,36 @@ update :: proc(dt: f64) {
     if by <= 0.0 do ydir *= -1
     if by >= height - bsz do ydir *= -1
     // score
-    if bx <= 0.0 do pscore += 1
-    if bx >= width - bsz do cpuscore += 1
-    // TODO restart ball
+    if bx <= 0.0 {
+        cpuscore += 1
+        reset_ball()
+    } 
+    if bx >= width - bsz {
+        pscore += 1
+        reset_ball()
+    }
 
     bx = clamp(bx, 0.0, width-bsz)
     by = clamp(by, 0.0, height-bsz)
+
+    if xdir == -1 && (bx <= padw * 2 && by >= py && by <= py + padh) {
+        xdir = 1;
+    }
+    if xdir == 1 && (bx + bsz >= cpux && by >= cpuy && by <= cpuy + padh) {
+        xdir = -1;
+    }
 }
 
 rect :: proc(x, y, w, h: i32) {
     using raylib
     DrawRectangle(x * scale, y * scale, w * scale, h * scale, WHITE)
+}
+
+reset_ball :: proc() {
+    xdir = (rand.int_max(2)) == 0 ? 1 : -1
+    ydir = (rand.int_max(2)) == 0 ? 1 : -1
+    bx = width/2-bsz/2.0
+    by = by
 }
 
 draw_scores :: proc() {

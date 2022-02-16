@@ -30,7 +30,7 @@ ifneq ($(MAKECMDGOALS), d)
 libs=-L/usr/local/lib
 includes=-I/usr/local/include -Ideps
 else
-libs=-L-L/usr/local/lib -I. -betterC
+libs=-L-L/usr/local/lib -I.
 endif
 
 ifeq ($(name), ppm_png)

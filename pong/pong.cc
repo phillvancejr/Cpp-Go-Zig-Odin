@@ -3,6 +3,7 @@
 #include <chrono>
 #include <algorithm>
 #include <stdio.h>
+#include <stdlib.h>
 
 const int width = 210;
 const int height = 160;
@@ -15,14 +16,14 @@ float pspeed = 100;
 float bspeed = 100;
 
 // TODO random ball dir
-float xdir = -1;
-float ydir = -1;
 float py = height/2-padh/2;
 float cpuy = py;
 const int cpux = width-padw*2;
 const int bsz = 10;
-float bx = width/2-bsz/2;
-float by = bx;
+float xdir{};
+float ydir{};
+float bx{};
+float by{};
 int pscore = 0;
 int cpuscore = 0;
 const int maxscore = 999;
@@ -32,12 +33,15 @@ char cpuscore_buf[4];
 void update(float dt);
 void rect(int x, int y, int w, int h);
 void draw_scores();
+void reset_ball();
 
 int main() {
     InitWindow(width*scale, height*scale, title);
     SetTargetFPS(60);
 
     auto last = std::chrono::system_clock::now().time_since_epoch();
+    srand(last.count());
+    reset_ball();
 
     while ( !WindowShouldClose() ) {
         BeginDrawing();
@@ -76,6 +80,12 @@ void draw_scores() {
 void rect(int x, int y, int w, int h) {
     DrawRectangle(x * scale, y * scale, w * scale, h * scale, WHITE);
 }
+void reset_ball() {
+    xdir = (rand() % 2) == 0 ? 1 : -1 ;
+    ydir = (rand() % 2) == 0 ? 1 : -1 ;
+    bx = width/2-bsz/2;
+    by = bx;
+}
 
 void update(float dt) {
     // ball movement
@@ -85,7 +95,7 @@ void update(float dt) {
     if ( IsKeyDown(KEY_UP) ) py -= pspeed * dt;
     if ( IsKeyDown(KEY_DOWN) ) py += pspeed * dt;
     // cpu follow ball
-    cpuy = by;
+    cpuy = by / 2;
     // clamp stuff
     py = std::clamp(py, 0.f, (float)height-padh);
     cpuy = std::clamp(cpuy, 0.f, (float)height-padh);
@@ -95,10 +105,24 @@ void update(float dt) {
     if (by <= 0 ) ydir *= -1;
     if (by >= height - bsz) ydir *= -1;
     // score
-    if (bx <= 0) pscore += 1;
-    if (bx >= width - bsz) cpuscore += 1;
-    // TODO restart ball
+    if (bx <= 0) { 
+        cpuscore += 1;
+        reset_ball();
+    }
+    if (bx >= width - bsz) {
+        pscore += 1;
+        reset_ball();
+    }
+    // paddle collision cpu
 
     bx = std::clamp(bx, 0.f, (float)width-bsz);
     by = std::clamp(by, 0.f, (float)height-bsz);
+
+    // paddle collision player
+    if (xdir == -1 and (bx <= padw * 2 and by >= py and by <= py + padh)) {
+        xdir = 1;
+    }
+    if (xdir == 1 and (bx + bsz >= cpux and by >= cpuy and by <= cpuy + padh)) {
+        xdir = -1;
+    }
 }
