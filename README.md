@@ -1,7 +1,6 @@
 # C++ vs Go vs Zig vs Odin
 A series of small test programs to figure out which of the languages I like best. I don't plan on dropping C++ but I'd be willing to replace Go with Zig or Odin if I like them.
 
-# My Final Thoughts
 ## C++
 BAE. I love C++. Despite its ugly bits, its still my favorite. And programming successfully in it makes me feel like a superhero even with trivial programs
 ## Go
@@ -11,8 +10,7 @@ Zig is super interesting and I definitely want to explore it further. There is a
 ## Odin
 Odin is also awesome. It feels like the most high level out of these due to its syntax. It isn't as far along with some things like networking but it has great bindings for many game and media libraries out of the box (though on mac I had to do some manual building). Its pretty cool and I would even consider replacing Go with it since superficially they are similar. In fact once Odin gets standard networking I will revisit and consider replacing Go with it.
 ## *D
-I added D during teh platformer task and found it interesting. In many ways it does improve on C++. But its kind of a pain to use in wasm which is important for me, so I won't be using it further.
-
+I added D during teh platformer task and found itD is interesting. In many ways it does improve on C++. But its kind of a pain to use in wasm which is important for me, so I won't be using it further.
 ## My rankings 
 lower score is better. No scores for the trival programs like Battle and Guess Number
 <table>
@@ -23,6 +21,7 @@ lower score is better. No scores for the trival programs like Battle and Guess N
     <th>echo server</th>
     <th>build system</th>
     <th>platformer</th>
+    <th>pong</th>
     <th>total</th>
     <tr>
         <td>c++</td> 
@@ -34,6 +33,28 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="platformer">1</td>
         <td name="pong">1</td>
         <td name="total">12</td>
+    </tr>
+    <tr>
+        <td>go</td> 
+        <td name="ppm">1</td>
+        <td name="http">1</td>
+        <td name="opengl">4</td>
+        <td name="echo server">1</td>
+        <td name="build system">2</td>
+        <td name="platformer">eliminated</td>
+        <td name="pong">eliminated</td>
+        <td name="total">9</td>
+    </tr>
+    <tr>
+        <td>zig</td> 
+        <td name="ppm">2</td>
+        <td name="http">3</td>
+        <td name="opengl">3</td>
+        <td name="echo server">1</td>
+        <td name="build system">1</td>
+        <td name="platformer">4</td>
+        <td name="pong">n/a</td>
+        <td name="total">14</td>
     </tr>
     <tr>
         <td>odin</td> 
