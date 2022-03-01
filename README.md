@@ -2,15 +2,15 @@
 A series of small test programs to figure out which of the languages I like best. I don't plan on dropping C++ but I'd be willing to replace Go with Zig or Odin if I like them.
 
 ## C++
-BAE. I love C++. Despite its ugly bits, its still my favorite. And programming successfully in it makes me feel like a superhero even with trivial programs
+I love C++. Despite its ugly bits, its still my favorite. And programming successfully in it makes me feel like a superhero even with trivial programs
 ## Go
 Even though it was eliminated early on, I will probably still use it for small tools using Webview because its networking support is just too good.
 ## Zig
 Zig is super interesting and I definitely want to explore it further. There is an imporant note on the compile times I recorded. Zig was consistently significantly slower than the others, however I actuallys poke with Andrew Kelly the creator of Zig on discord about this and He mentioned that the compile times will dramatically improve when the self hosted incremental compiler is finished which is about 66% of the way there (as of 02/13/2022). Despite its verbosity I really love the language's approach to memory management (via allocators) and error handling. Also Zig can be used as a cross compiling C and C++ (and I think also Objective C ) compiler. I've even read a couple Go articles in which Zig is used to cross compile Go applications using Cgo. It has a cool build system using the language itself as the build language. I will absolutely be playing with it more in the future.
 ## Odin
-Odin is also awesome. It feels like the most high level out of these due to its syntax. It isn't as far along with some things like networking but it has great bindings for many game and media libraries out of the box (though on mac I had to do some manual building). Its pretty cool and I would even consider replacing Go with it since superficially they are similar. In fact once Odin gets standard networking I will revisit and consider replacing Go with it.
+Odin is also awesome. It feels like the most high level out of these due to its syntax. It isn't as far along with some things like networking but it has great bindings for many game and media libraries out of the box (though on mac I had to do some manual building). Its pretty cool and I would even consider replacing Go with it since superficially they are similar. In fact once Odin gets standard networking I will revisit and consider replacing Go with it. Also I complained a lot about Odin's strong typing and strict casting, however of course this was greatly exaggerated by my misunderstanding. You can mitigate the casting by precasting things that you will use a lot, and also by using constants wherever possible as these are "untyped" and coerce to other types easily
 ## *D
-I added D during teh platformer task and found itD is interesting. In many ways it does improve on C++. But its kind of a pain to use in wasm which is important for me, so I won't be using it further.
+I added D during the platformer task and found it is interesting. In many ways it does improve on C++. But its kind of a pain to use in wasm which is important for me, so I won't be using it further.
 ## My rankings 
 lower score is better. No scores for the trival programs like Battle and Guess Number
 <table>

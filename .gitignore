@@ -78,11 +78,13 @@ platformer/cc_platformer
 platformer/go_platformer
 platformer/zig_platformer
 platformer/odin_platformer
+platformer/d_platformer
 
-pong_multiplayer/cc_pong_multiplayer
-pong_multiplayer/go_pong_multiplayer
-pong_multiplayer/zig_pong_multiplayer
-pong_multiplayer/odin_pong_multiplayer
+pong/cc_pong
+pong/go_pong
+pong/zig_pong
+pong/odin_pong
+pong/d_pong
 
 ppm_png/cc_ppm_png
 ppm_png/go_ppm_png
