@@ -3,6 +3,7 @@
 headers.hpp.gch
 **/headers.hpp.gch
 **/zig-cache
+**/build
 overview.txt
 TEMPLATE.md
 deps/stb_leg

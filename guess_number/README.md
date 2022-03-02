@@ -34,6 +34,9 @@ if stdin.readUntilDelimiterOrEof returns and error we return -1 from the functio
 ## Odin
 Odin is an odd mix of verbosity and simplicty. The code is very simple but reading from stdin is surprisingly verbose, fmt.scanf would be a welcome addition. If it wasn't for the verbosity involved in getting input and converting it the program would be very short. But even being as long as zig in terms of number of lines, the code is as simple as the go or c++ versions, except for the stdin and conversion business. Odin's or_else statement worked well for the error handling. My only gripe with it is that it cannot be used in main
 
+## Janet
+Once you get passed the S expression syntax, the Janet version is actually quite nice. And the cool thing about it is that you can use a REPL like python since it is an interpreted language. The Downside is that it is not statically typed, but overall it was pretty nice. It was simple and fast to develop thanks to the repl and good documentation. I didnt' compile this simple example (Yes you can compile Janet to standalone executables!) as it is so simple, but see some of the other demos for compile times
+
 ### compile times
 ranked according to cached times
 <table>

@@ -29,8 +29,9 @@ if i == 0 {
     w1, w2 = &bork, &grog
 }
 ```
-
 Odin surprisingly was also the slowest to comile
+## Janet
+Pretty simple and I didn't run into any issues with the lack of static typing for this very simple example. The compiled version runs pretty fast: this example runs about as fast as the go version. The compile time was very surprising, only Go beat it!
 
 ### compile times
 ranked according to cached times
@@ -44,17 +45,22 @@ ranked according to cached times
         <td>2.890s</td>
     </tr>
     <tr>
-        <td>2. zig</td> 
+        <td>2. janet</td> 
+        <td>0.150</td>
+        <td>0.385</td>
+    </tr>
+    <tr>
+        <td>3. zig</td> 
         <td>0.323s</td>
         <td style="color:red">3.855s</td>
     </tr>
     <tr>
-        <td>3. c++</td> 
+        <td>4. c++</td> 
         <td>0.353s</td>
         <td>1.059s</td>
     </tr>
     <tr>
-        <td>4. odin</td> 
+        <td>5. odin</td> 
         <td>0.828s</td>
         <td>1.733s</td>
     </tr>

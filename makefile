@@ -87,6 +87,10 @@ zig: $(wildcard $(name)/*.zig)
 odin: $(wildcard $(name)/*.odin)
 	odin build $(name)/$(name)$(num).odin -out:$(name)/odin_$(name)
 	$(call bin,odin)
+janet: $(name)/$(name).janet
+	janet $<
+janet-build: $(name)/$(name).janet
+	cd $(name);jpm build
 
 d: $(wildcard $(name)/$(name).d)
 	dmd $(name)/$(name).d -of=$(name)/d_$(name) $(libs)
@@ -123,6 +127,11 @@ create2:
 	touch $(name)/$(name).d
 	touch $(name)/$(name).odin
 
+create-janet:
+	touch $(name)/$(name).janet
+	touch $(name)/project.janet
+	echo '(declare-project :name "$(name)")' > $(name)/project.janet
+	echo '(declare-executable :name "$(name)" :entry "$(name).janet")' >> $(name)/project.janet
 
 .PHONY:pbs
 pbs:
