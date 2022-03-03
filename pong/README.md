@@ -8,6 +8,8 @@ Super simple like the others. Odin's embedded linker/include flags is very nice,
 This was the second Janet example I did and Janet has a feature the others don't that basically made it the winner for me. Janet allows for live reloading of code while the program is running, similar to Lisp with Slime and Swank. I developed this pong demo as it ran using the NeoVim with the Conjure Plugin as the editor and it was super fun. The changes take place instantly:
 ![](janet_pong_reload.gif)
 
+I included two files for Janet in this example. The first, `pong.janet` is the file I developed live and so it contains more comments and the scaffolding for live reloading, while the second `pong_final.janet` is the cleaned up file suitable for executable copilation via jpm.
+
 
 ### compile times
 ranked according to cached times

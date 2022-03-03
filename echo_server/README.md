@@ -24,24 +24,33 @@ odin build main.odin -define:SDL_NET_STATIC=true
 ```
 
 I haven't tried it yet but I think it should work. If it does this will be a suitable solution until the official solution is implemented
+
+## Janet
+Very simple and quick to develop. Not a whole lot ot say because it was so easy. But I would say the ease of use and documentation for it make it as good as Go and actually Odin Zig and C++ should be bumped down a slot
 ### overall rankings
-1. Go Odin Zig (tie)
-2. C++
+1. Go  Janet (tie)
+2. Odin Zig (tie)
+3. C++
 ### compile times
 ranked according to cached times
 <table>
     <th>lang</th>
-    <th>cold</th>
     <th>cached</th>
+    <th>cold</th>
     <tr>
-        <td>1. c++</td> 
-        <td>0.474s</td>
-        <td>1.039s</td>
-    </tr>
-    <tr>
-        <td>2. go</td> 
+        <td>1. go</td> 
         <td>0.118s</td>
         <td>1.78s</td>
+    </tr>
+    <tr>
+        <td>2. janet</td> 
+        <td>0.290s</td>
+        <td>1.412s</td>
+    </tr>
+    <tr>
+        <td>3. c++</td> 
+        <td>0.474s</td>
+        <td>1.039s</td>
     </tr>
     <tr>
         <td>3. odin</td> 

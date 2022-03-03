@@ -37,11 +37,11 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="ppm">1</td>
         <td name="http">2</td>
         <td name="opengl">2</td>
-        <td name="echo server">2</td>
+        <td name="echo server">3</td>
         <td name="build system">3</td>
         <td name="platformer">1</td>
         <td name="pong">1</td>
-        <td name="total">12</td>
+        <td name="total">13</td>
     </tr>
     <tr>
         <td>go</td> 
@@ -59,31 +59,31 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="ppm">2</td>
         <td name="http">3</td>
         <td name="opengl">3</td>
-        <td name="echo server">1</td>
+        <td name="echo server">2</td>
         <td name="build system">1</td>
         <td name="platformer">4</td>
         <td name="pong">n/a</td>
-        <td name="total">14</td>
+        <td name="total">15</td>
     </tr>
     <tr>
         <td>odin</td> 
         <td name="ppm">1</td>
         <td name="http">4</td>
         <td name="opengl">1</td>
-        <td name="echo server">1</td>
+        <td name="echo server">2</td>
         <td name="build system">2</td>
         <td name="platformer">3</td>
         <td name="pong">1</td>
-        <td name="total">13</td>
+        <td name="total">14</td>
     </tr>
     <tr>
         <td>d</td> 
         <td name="ppm">n/a</td>
         <td name="http">n/a</td>
         <td name="opengl">n/a</td>
-        <td name="echo server">n/a</td>
+        <td name="echo server">1</td>
         <td name="build system">n/a</td>
-        <td name="platformer">1</td>
+        <td name="platformer">n/a</td>
         <td name="pong">1</td>
         <td name="total">tbd</td>
     </tr>
@@ -92,7 +92,7 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="ppm">n/a</td>
         <td name="http">n/a</td>
         <td name="opengl">n/a</td>
-        <td name="echo server">n/a</td>
+        <td name="echo server">1</td>
         <td name="build system">n/a</td>
         <td name="platformer">n/a</td>
         <td name="pong">1</td>
