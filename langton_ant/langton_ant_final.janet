@@ -70,11 +70,11 @@
   [ ant-x ant-y ant-dir ]
   (var result-x ant-x)
   (var result-y ant-y)
-  (cond
-    ( = ant-dir left  ) (-- result-x)
-    ( = ant-dir up    ) (-- result-y)
-    ( = ant-dir right ) (++ result-x)
-    ( = ant-dir down  ) (++ result-y)
+  (match ant-dir
+    ( @ left  ) (-- result-x)
+    ( @ up    ) (-- result-y)
+    ( @ right ) (++ result-x)
+    ( @ down  ) (++ result-y)
   )
   [ result-x result-y ]
 )
@@ -134,21 +134,9 @@
         (do
           (red true index)
           (prin (draw ant-dir))
-          #(cond
-          #  ( = ant-dir left ) (prin "<")
-          #  ( = ant-dir up   ) (prin "A")
-          #  ( = ant-dir right) (prin ">")
-          #  ( = ant-dir down ) (prin "V")
-          #)
           (red false index))
       #else
-          (prin (draw (board index)))
-          #(if ( = (board index) :white )
-          #  #(prin "\x1b[30m\u2588\x1b[0m")
-          #  (prin ".")
-          ##else
-          #  (prin "#")))
-            #(prin "\x1b[0m\u2588")))
+        (prin (draw (board index)))
       ) # end if
     ) # end for x
     # newline

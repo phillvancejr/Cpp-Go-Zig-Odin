@@ -53,6 +53,8 @@ Like C++ and Zig, Odin is also able to initialize an array at compile time easil
 ```go
 board :: [?]int{ 0..width*height=1 }
 ```
+## Janet
+Janet compiled a little slower than I expected for this simpel project, but it was cool to develop it live
 ### compile times
 ranked according to cached times
 <table>
@@ -70,12 +72,17 @@ ranked according to cached times
         <td>0.675s</td>
     </tr>
     <tr>
-        <td>3. odin</td> 
+        <td>3. janet</td> 
+        <td>0.640s</td>
+        <td>2.462s</td>
+    </tr>
+    <tr>
+        <td>4. odin</td> 
         <td>0.741s</td>
         <td>1.673s</td>
     </tr>
     <tr>
-        <td>4. zig</td> 
+        <td>5. zig</td> 
         <td>0.916s</td>
         <td style="color:red">5.057s</td>
     </tr>
