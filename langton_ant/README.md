@@ -54,7 +54,7 @@ Like C++ and Zig, Odin is also able to initialize an array at compile time easil
 board :: [?]int{ 0..width*height=1 }
 ```
 ## Janet
-Janet compiled a little slower than I expected for this simpel project, but it was cool to develop it live
+Janet compiled a little slower than I expected for this simple project, but it was cool to develop it live
 ### compile times
 ranked according to cached times
 <table>
