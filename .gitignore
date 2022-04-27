@@ -1,5 +1,7 @@
 .DS_Store
 **/.DS_Store
+gl2
+./gl2
 headers.hpp.gch
 **/headers.hpp.gch
 **/zig-cache
@@ -72,6 +74,7 @@ music_app/odin_music_app
 
 opengl/cc_opengl
 opengl/go_opengl
+opengl/go_opengl2
 opengl/zig_opengl
 opengl/odin_opengl
 

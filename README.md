@@ -4,6 +4,9 @@ A series of small test programs to figure out which of the languages I like best
 ## C++
 I love C++. Despite its ugly bits, its still my favorite. And programming successfully in it makes me feel like a superhero even with trivial programs
 ## Go
+#### UPATE 04/27/22
+Go is un-eliminated after rewriting the opengl example directly against C myself and I think that after using it for a few projects out side of this where in one case it actually replaced a previously C++ version, it might be dethroning C++ as my favorite.
+
 Even though it was eliminated early on, I will probably still use it for small tools using Webview because its networking support is just too good.
 ## Zig
 Zig is super interesting and I definitely want to explore it further. There is an imporant note on the compile times I recorded. Zig was consistently significantly slower than the others, however I actuallys poke with Andrew Kelly the creator of Zig on discord about this and He mentioned that the compile times will dramatically improve when the self hosted incremental compiler is finished which is about 66% of the way there (as of 02/13/2022). Despite its verbosity I really love the language's approach to memory management (via allocators) and error handling. Also Zig can be used as a cross compiling C and C++ (and I think also Objective C ) compiler. I've even read a couple Go articles in which Zig is used to cross compile Go applications using Cgo. It has a cool build system using the language itself as the build language. I will absolutely be playing with it more in the future.
