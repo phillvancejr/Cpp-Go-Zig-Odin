@@ -59,18 +59,25 @@ The funny thing is, I'd say that overall Nim is a better language than Go when i
 
 <tr>
 <td>3</td>
+<td>Nim</td>
+<td>Not a whole lot ot say except that Nim's C interop is very good so working with graphics apis is also simple. It does have a very comprehensive library <a href="https://github.com/nimgl/nimgl">NimGL</a> which provides not only OpenGL bindings but also: GLFW, Vulkan and <a href="https://github.com/ocornut/imgui">ImGui</a>. For the web, Nim works with Emscripten since it compiles to C but Nim also has first class compilation to JavaScript and the front page of the Nim site actually has a snake game written in JS by the language creator</td>
+</tr>
+
+
+<tr>
+<td>4</td>
 <td>Go</td>
 <td>Go is pretty good once you get past some of the setup for its C interop. Also you can make talking to C easier by using C types instead of Go types. For example if you want to pass some floats to openGL its super easy if you use C.float instead of Go's float. Go also works well with Wasm and even its concurrency works with both <a href="https://github.com/gopherjs/gopherjs">GopherJS</a> and <a href="https://tinygo.org">TinyGo</a></td>
 </tr>
 
 <tr>
-<td>4</td>
+<td>5</td>
 <td>D</td>
 <td>D could arguably be #2 either tied with or displacing C++ if we're just talking about Desktop without web support. D's dstep tool and importc language feature make interop with C pretty easy. It has componet wise array operations similar to Odin which is nice. For me the big problem with D is that its wasm support is terrible. You can really only use it with betterC which is D's limited mode that restricts it to an enhanced C subset. When I was asking questions about using D's betterC with wasm one discord user kept refering to it as worse D, which might sound negative but is 100% accurate. Many of the things that make D good don't work in better C. Overall using D on desktop is great, but its terrible for the web and wasm</td>
 </tr>
 
 <tr>
-<td>5</td>
+<td>6</td>
 <td>Zig</td>
 <td>Zig's C interop is great, actually for the most part its almost as easy as C++ and it also works very well with wasm. I think the main draw back for Zig with graphics is that its syntax for casting is very verbose and it becomes a bit of a chore</td>
 </tr>
