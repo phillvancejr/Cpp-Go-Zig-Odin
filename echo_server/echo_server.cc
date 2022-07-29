@@ -20,7 +20,6 @@ int main() {
     puts("listening on port 8000");
     listen(server, 1);
 
-
     auto client = accept(server, nullptr, nullptr);
 
     if ( client == -1) {
@@ -34,9 +33,12 @@ int main() {
 
     while (true) {
         std::string msg;
-        char buf[128]{0};
-        auto len = recv(client, buf, sizeof buf, 0);
-        msg += buf;
+        msg.reserve(128);
+        // char buf[128]{0};
+        // auto len = recv(client, buf, sizeof buf, 0);
+        auto len = recv(client, msg.data(), msg.capacity(), 0);
+
+        // msg += buf;
         if (msg.find("bye") != std::string::npos) {
             puts("saying goodbye!");
             auto bye = "Good bye!\n"s;
@@ -45,7 +47,8 @@ int main() {
             break;
         }
         if (len) {
-            printf("received: %s", buf);
+            // printf("received: %s", buf);
+            printf("received: %s", msg.data());
             // memset(buf,0,sizeof(buf));
             msg = "echo: " + msg + "\n";
             send(client, msg.data(), msg.size(), 0);

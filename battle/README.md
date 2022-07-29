@@ -32,7 +32,8 @@ if i == 0 {
 Odin surprisingly was also the slowest to comile
 ## Janet
 Pretty simple and I didn't run into any issues with the lack of static typing for this very simple example. The compiled version runs pretty fast: this example runs about as fast as the go version. The compile time was very surprising, only Go beat it!
-
+## Nim
+Nim's version turns out to be the shortest version. Nim has tuple expressions and so returning `(warrior1,warrior2)` from if expressions was pretty cool
 ### compile times
 ranked according to cached times
 <table>
@@ -63,6 +64,11 @@ ranked according to cached times
         <td>5. odin</td> 
         <td>0.828s</td>
         <td>1.733s</td>
+    </tr>
+    <tr>
+        <td>6. nim++</td> 
+        <td>0.8s - 1.4s</td>
+        <td>2.285s</td>
     </tr>
 </table>
 

@@ -12,7 +12,6 @@ type Person struct {
     Eye_color string `json:"eye_color"`
 }
 
-
 func main() {
 	resp, e := http.Get("https://swapi.dev/api/people/1")
 	if e != nil {

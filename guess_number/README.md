@@ -37,6 +37,13 @@ Odin is an odd mix of verbosity and simplicty. The code is very simple but readi
 ## Janet
 Once you get passed the S expression syntax, the Janet version is actually quite nice. And the cool thing about it is that you can use a REPL like python since it is an interpreted language. The Downside is that it is not statically typed, but overall it was pretty nice. It was simple and fast to develop thanks to the repl and good documentation. I didnt' compile this simple example (Yes you can compile Janet to standalone executables!) as it is so simple, but see some of the other demos for compile times
 
+## Swift
+Added swift on 22/6/1. The swift version is simple and it compiles decently quick. Its binaries are smaller than everyone except for c++ with the exception of Zig with `ReleaseSmall`. Very simple and the error checking for the stdinput was a one liner 
+```swift
+ guess = Int(readLine() ?? "-1") ?? -1
+ ```
+## Rust
+Added Rust on 22/6/1. Going to the Dark side. The Rust version is fine, pretty simple
 ### compile times
 ranked according to cached times
 <table>
@@ -54,12 +61,17 @@ ranked according to cached times
         <td>2.08s</td>
     </tr>
     <tr>
-        <td>3. odin</td> 
+        <td>3. swift</td> 
+        <td>0.419s</td>
+        <td>0.3s</td>
+    </tr>
+    <tr>
+        <td>4. odin</td> 
         <td>0.762s</td>
         <td>1.629s</td>
     </tr>
     <tr>
-        <td>4. zig</td> 
+        <td>5. zig</td> 
         <td>0.903s</td>
         <td style="color:red">4.408s</td>
     </tr>

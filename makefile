@@ -91,11 +91,22 @@ janet: $(name)/$(name).janet
 	janet $<
 janet-build: $(name)/$(name).janet
 	cd $(name);jpm build
+swift:
+	swiftc $(name)/$(name).swift -o $(name)/swift_$(name) -import-objc-header $(name)/swift_lib.h $(libs)
+	$(call bin,swift)
+rust:
+	cd $(name) && cargo run
 
+nim:
+	nim c --verbosity:0 -o:$(name)/nim_$(name) $(flags) $(name)/$(name).nim
+	$(call bin,nim)
 d: $(wildcard $(name)/$(name).d)
 	dmd $(name)/$(name).d -of=$(name)/d_$(name) $(libs)
 	rm $(name)/d_*.o
 	$(call bin,d)
+v: $(wildcard $(name)/*.v)
+	v $(name)/$(name).v -o $(name)/v_$(name)
+	$(call bin,v)
 
 
 .SILENT: time
@@ -133,6 +144,17 @@ create-janet:
 	echo '(declare-project :name "$(name)")' > $(name)/project.janet
 	echo '(declare-executable :name "$(name)" :entry "$(name).janet")' >> $(name)/project.janet
 
+create-swift:
+	touch $(name)/$(name).swift
+	touch $(name)/swift_lib.h
+
+create-nim:
+	touch $(name)/$(name).nim
+
+create-rust:
+	cd $(name) && \
+	echo "fn main(){\n}" > build.rs && \
+	cargo init
 .PHONY:pbs
 pbs:
 	dmd -betterC -lib pbs/*.d -of=pbs/libpbs.a

@@ -1,7 +1,9 @@
 # Echo Server
-A simple echo server over the local network. There is a simple client.go that can be used to connect to the servers.
+A simple synchronous echo server over the local network handling a single client. There is a simple client.go that can be used to connect to the servers.
 ## C++
 Fairly simple using Unix sockets. It has the downside of being Unix specific, but Windows has the WinSock api which is similar. I'll give it 2nd place. There are a plethora of open source networking libraries for C and C++
+#### UPDATE 06/02/22
+I added an Asio version which was super nice and simple. Asio to me, seemed very complicated because most tutorials immediately jump into an Object Oriented class based server and it makes following the actual Asio parts difficult. However when written in a simple manner without classes, Asio is very easy to understand and simple to use. I'd actually say this version ties with Go for first, in fact I might place it above Go tieing with Janet and bump Go down to second, though I'm sure Go would take the cake for the asynchronous version.
 ## Go
 Go of course was very easy. 1st place becaues of ease of use and plentiful documentation
 ## Zig
@@ -27,10 +29,13 @@ I haven't tried it yet but I think it should work. If it does this will be a sui
 
 ## Janet
 Very simple and quick to develop. Not a whole lot ot say because it was so easy. But I would say the ease of use and documentation for it make it as good as Go and actually Odin Zig and C++ should be bumped down a slot
+## Rust
+Rust's was actually very nice, all using builtin features. I guess it ties for first.
+## Nim
+Nim's was nice, though there were a few gotchas with setitng socket options to reuse ports and making sure to quit when the async work was done. I'd say it wasn't that hard to get working though so I guess it ties for first place.
 ### overall rankings
-1. Go  Janet (tie)
+1. Go  Janet C++ Rust Nim (tie) 
 2. Odin Zig (tie)
-3. C++
 ### compile times
 ranked according to cached times
 <table>
@@ -61,5 +66,10 @@ ranked according to cached times
         <td>4. zig</td> 
         <td>0.948s</td>
         <td style="color:red">4.618s</td>
+    </tr>
+    <tr>
+        <td>5. nim</td> 
+        <td>1.1s</td>
+        <td>1.9s</td>
     </tr>
 </table>

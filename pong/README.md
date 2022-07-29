@@ -9,7 +9,8 @@ This was the second Janet example I did and Janet has a feature the others don't
 ![](janet_pong_reload.gif)
 
 I included two files for Janet in this example. The first, `pong.janet` is the file I developed live and so it contains more comments and the scaffolding for live reloading, while the second `pong_final.janet` is the cleaned up file suitable for executable copilation via jpm.
-
+## *Swift
+Swift's version was nice like the others. Also Swift's seamless C interop was great, the only hiccup was that it didnt' understand Raylib's `#define` color macros so I had to alias them in the header file but not a big deal.
 
 ### compile times
 ranked according to cached times
@@ -23,12 +24,17 @@ ranked according to cached times
         <td>0.506s</td>
     </tr>
     <tr>
-        <td>2. janet</td> 
+        <td>2. swift</td> 
+        <td>0.448s</td>
+        <td>1.348s</td>
+    </tr>
+    <tr>
+        <td>3. janet</td> 
         <td>0.492s</td>
         <td>1.276s</td>
     </tr>
     <tr>
-        <td>3. D</td> 
+        <td>4. D</td> 
         <td>0.543s</td>
         <td>0.597s</td>
     </tr>

@@ -15,7 +15,6 @@ func main() {
 
 	defer server.Close()
 
-
 	fmt.Println("Listening on port 8000")
     
     client, e := server.Accept()

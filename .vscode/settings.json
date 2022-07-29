@@ -1,3 +1,7 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "editor.formatOnType": true,
+    "files.associations": {
+        "string": "cpp"
+    }
 }

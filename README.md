@@ -1,4 +1,4 @@
-# C++ vs Go vs Zig vs Odin
+# C++ vs Go vs Zig vs Odin vs D vs Janet vs Swift vs Nim
 A series of small test programs to figure out which of the languages I like best. I don't plan on dropping C++ but I'd be willing to replace Go with Zig or Odin if I like them.
 
 ## C++
@@ -12,9 +12,9 @@ Go is un-eliminated after rewriting the opengl example directly against C myself
 Zig is super interesting and I definitely want to explore it further. There is an imporant note on the compile times I recorded. Zig was consistently significantly slower than the others, however I actuallys poke with Andrew Kelly the creator of Zig on discord about this and He mentioned that the compile times will dramatically improve when the self hosted incremental compiler is finished which is about 66% of the way there (as of 02/13/2022). Despite its verbosity I really love the language's approach to memory management (via allocators) and error handling. Also Zig can be used as a cross compiling C and C++ (and I think also Objective C ) compiler. I've even read a couple Go articles in which Zig is used to cross compile Go applications using Cgo. It has a cool build system using the language itself as the build language. I will absolutely be playing with it more in the future.
 ## Odin
 Odin is also awesome. It feels like the most high level out of these due to its syntax. It isn't as far along with some things like networking but it has great bindings for many game and media libraries out of the box (though on mac I had to do some manual building). Its pretty cool and I would even consider replacing Go with it since superficially they are similar. In fact once Odin gets standard networking I will revisit and consider replacing Go with it. Also I complained a lot about Odin's strong typing and strict casting, however of course this was greatly exaggerated by my misunderstanding. You can mitigate the casting by precasting things that you will use a lot, and also by using constants wherever possible as these are "untyped" and coerce to other types easily
-## *D
+## D
 I added D during the platformer task and found it is interesting. In many ways it does improve on C++. But its kind of a pain to use in wasm which is important for me, so I won't be using it further.
-## *Janet
+## Janet
 #### see upate below
 
 I added a weird language called [Janet](https://janet-lang.org) recently. Janet is a lisp like language which can be embedded in and extended with C, similar to [Mruby](https://github.com/mruby/mruby). I had come acrossed it many times before but just wrote it off as another weird Lisp, but recently (Late Feb 2022) I've been revisiting Lisps thanks to [Bagger's awesome video](https://www.youtube.com/watch?v=6pMyhrDcMzw) of recompiling a 3d demo as it runs. I began learning Common Lisp with SBCL and had intended to use Emacs and Slime/Swank for development but... I detest Emacs. Ha ha, the bindings are just too unnatural for me coming from Vim. I know there is the Spacemacs plugin to make it more like vim but I couldn't get it to work on Mac Catalina. And so I decided to give up on Lisps for good as my thinking was that Emacs it the best Lisp environment and if I can't use the best environment I'm just not going to use it at all. Well I came to [Alive](https://lispcookbook.github.io/cl-cookbook/vscode-alive.html#optional-custom-configurations) in VSCode and a project called [Conjure](https://github.com/Olical/conjure) for [Neovim](https://neovim.io) and these worked well and were easy to set up. 
@@ -27,7 +27,16 @@ Overall I really liked Janet and I think it will be dethroning Go as my secondar
 #### UPATE 04/27/22
 I learned more about and worked with Janet last month. Toward the end I ended up writing OpenGl bindings which were quite capable though not complete. However I found compiling to wasm much more difficult than I originally thought. Compiling Janet to wasm via emscripten is quite easy, however my OpenGL bindings are a large project with many submodules and the Janet C embedding api doesn't have support for preserving this module structure when exposing bindings, that is to say that all my gl functions would be exposed in the global scope, meaning my module imports wouldn't work. The workaround is to create a dummy project structure that imports all the functions from the global scope in the proper modules, however this was much more than I wanted to do. I really liked Janet, but this event led me to abandon the gl bindings and go back to Go which I'm quite happy with now.
 
+## Swift
+Added swift on 6/1/22. I forgot about swift during the project. Swift has made a lot of progress towards cross compatibility and as of 2022, Swift runs on Mac, Linux, Windows and Wasm. On Windows a lot of effort has been invested to allow Swift to interop with the win32 api and so completely native applications can be written in pure swift for both Mac and Windows using their native bindings. Swift is not garbage collected, although technically it is since reference counting is a form of garbage collection, but it wont' suffer from GC pauses. It is a proven language, it is obviously used extensively (almost exclusively) on Mac OS for everything from Applications to games. I imagine that these days virtually all games are written in Swift for IOS and so it is a proven games programming language even though I've never seen it mentioned in discussions about games languages. I assume that Swift can't run on any consoles currently and this might be the reason it is not mentioned in game language discussions, but then again Python is quite popular amongs hobbyist and no one is even thinking of running Python on consoles.  It can't cross compile like Go or Zig unfortunately. It is really nice and looks and feels like a GC'd scripting language but compiles natively. It feels a lot like Rust without the borrow checker, and it predates Rust as far as I know.
 
+Swift is fun and it was really nice to use. However I think the thing that might hold it back for me is that even though it is supported on Windows and Linux, I don't know of any cross platform networking api that would allow for tcp or udp servers. Though its great C interop does mean that something like SDL_Net, Enet or Mongoose could be used
+## Nim
+Nim is pretty cool. Its similar to Go in that it has a lot of libraries included. I'd say that interop with C is easier in Nim because the types map more closely to C. In Nim an array is the same as a C array so there is no funny business with wrapping unsafe slices like in Go. I'd say that Nim is in general better than Go for graphics, however nothing I've tested so far can beat Go's easy concurrency. So for everything except highly concurrent networking I'd say that I actaully prefer Nim over Go. Also Nim's module system is in my opinion better than Go's. Go's system requires specific file layouts and when testing a repo on github and pushing and pulling I found that I had to make sure Go wasn't caching the changes and used the latest commits which I forget how to do often, however with Nim its like Python, you just import the file and its the file that is in the import path. Nim is more complex language than Go in terms of what you can do, but in practice I found that the complexity of say macros don't really seem to show. If you're learning macros they are quite complex but they exist in many places and can be used without necessarily knowing how they are implemented. Back to Nim's C interop, you do have to write bindings, however the c2nim tool which can be installed via the nimble package manager is excellent. I was able to generate nim bindings to the emoon's [minifb ](https://github.com/emoon/minifb) library very easily and the only thing I needed to do manually was insert importing code for a single struct, and then embed the linking flags. I'd say this is better than Go because even though Go can just include C with cgo, interacting with that C from Go often involves trickery due to Go's view of C as unsafe and because Go has strict rules about passing memory back and forth with C code. 
+
+First class compilation to Javascript is cool.
+
+The funny thing is, I'd say that overall Nim is a better language than Go when it comes to interop with C, maybe syntax aesthetics if you care about that (I don't really), and definitely its module system, however Nim feels really generic also. It is definitely a general purpose language and doesn't really shine in any area. Go shines in networking, concurrency, compile times and simplicity and even though it brings some irritations and annoyances with things like its C interop, at least it has a reason for being. Nim is a cool language dont get me wrong, but it doesn't really feel like it has a reason to exist. Nim makes most everything easier (at least easier than C and C++) but it doesn't necessarily make anything awesome. I'd say that Nim is good for people who want a compiled language and are very concerned about how code looks. I mean I have to say I do think Nim is the best looking language of the lot. 
 ## My rankings 
 lower score is better. No scores for the trival programs like Battle and Guess Number
 <table>
@@ -45,11 +54,11 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="ppm">1</td>
         <td name="http">2</td>
         <td name="opengl">2</td>
-        <td name="echo server">3</td>
+        <td name="echo server">1</td>
         <td name="build system">3</td>
         <td name="platformer">1</td>
         <td name="pong">1</td>
-        <td name="total">13</td>
+        <td name="total">11</td>
     </tr>
     <tr>
         <td>go</td> 
