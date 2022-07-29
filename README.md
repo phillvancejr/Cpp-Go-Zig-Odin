@@ -38,7 +38,92 @@ First class compilation to Javascript is cool.
 
 The funny thing is, I'd say that overall Nim is a better language than Go when it comes to interop with C, maybe syntax aesthetics if you care about that (I don't really), and definitely its module system, however Nim feels really generic also. It is definitely a general purpose language and doesn't really shine in any area. Go shines in networking, concurrency, compile times and simplicity and even though it brings some irritations and annoyances with things like its C interop, at least it has a reason for being. Nim is a cool language dont get me wrong, but it doesn't really feel like it has a reason to exist. Nim makes most everything easier (at least easier than C and C++) but it doesn't necessarily make anything awesome. I'd say that Nim is good for people who want a compiled language and are very concerned about how code looks. I mean I have to say I do think Nim is the best looking language of the lot. 
 ## My rankings 
+
+### Graphics
+<table>
+<th>Place</th>
+<th>Language</th>
+<th>Notes</th>
+
+<tr>
+<td>1</td>
+<td>Odin</td>
+<td>Odin has built in libraries for Opengl, Metal, DirectX 11 & 12, Vulkan and WebgL 1 & 2. The Language also has builtin in array component wise operations which can be used for basic vector math as builtin in Matrix and Quaternion types and libraries containing all the game math you'd have to install as a separate library in every other language. It has builtin bindings to SDL net and Enet for networking. I don't think wasm with Odin and OpenGL isn't too difficult, you should just need to use the WebGL libraries instead of the OpenGL ones which should just be a matter of conditional imports. I haven't tried this specifically but I'm confident it would work for the most part</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>C++</td>
+<td>Obviously pretty much all the libraries are written in C or C++. The only reason it isn't number 1 is because with Odin link flags are embedded in the libraries so you don't have to worry about build flags like in C++ and because Odin has built in support for Vectors, Matrices and Quaternions. But if you don't mind writing simple makefiles, and either writing or getting libraries for things like vectors and matrices C++ is of course still great. Also C++'s wasm support works with OpenGL and SDL with pretty much just a change of compilers, using emscripten instead of the normal compiler. Emscripten's downside for me personally is that you get a large bundle. When I say the bundle is large, its not so much about size but complexity, emscripten does things a specific way. Its still very easy to use and in fact is the best for cross platform graphics from desktop and web</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Go</td>
+<td>Go is pretty good once you get past some of the setup for its C interop. Also you can make talking to C easier by using C types instead of Go types. For example if you want to pass some floats to openGL its super easy if you use C.float instead of Go's float. Go also works well with Wasm and even its concurrency works with both <a href="https://github.com/gopherjs/gopherjs">GopherJS</a> and <a href="https://tinygo.org">TinyGo</a></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>D</td>
+<td>D could arguably be #2 either tied with or displacing C++ if we're just talking about Desktop without web support. D's dstep tool and importc language feature make interop with C pretty easy. It has componet wise array operations similar to Odin which is nice. For me the big problem with D is that its wasm support is terrible. You can really only use it with betterC which is D's limited mode that restricts it to an enhanced C subset. When I was asking questions about using D's betterC with wasm one discord user kept refering to it as worse D, which might sound negative but is 100% accurate. Many of the things that make D good don't work in better C. Overall using D on desktop is great, but its terrible for the web and wasm</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Zig</td>
+<td>Zig's C interop is great, actually for the most part its almost as easy as C++ and it also works very well with wasm. I think the main draw back for Zig with graphics is that its syntax for casting is very verbose and it becomes a bit of a chore</td>
+</tr>
+
+
+</table>
+
+### Networking
+<table>
+<th>Place</th>
+<th>Language</th>
+<th>Notes</th>
+
+<tr>
+<td>1</td>
+<td>Go</td>
+<td>No surprise here. Go's networking is the best, not just because it has so many built in libraries specifically built for networking, but also because its concurrency is so simple and efficient</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Nim</td>
+<td>Nim's async and multithreading are not as polished as Go's coroutine concurrency but they are simple and work. Its networking is also pretty simple. It doesn't really stand out as being particularly interesting but it is straightforward and straightforward is good</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>D</td>
+<td>D has built in sockets and the higher level vibe D library for http servers is well documented. D also has decent parallelism constructs. Not a lot to say as I haven't actually used D for networking, I just looked at some of the documentation and tutorials. Though I haven't actually done any D networkign myself, just from the examples on the Dlang site and Rosetta code I can see that it is very simple to use</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Odin</td>
+<td>Despite not having standard networking, Odin has built in support for <a href="https://github.com/libsdl-org/SDL_net">SDL_Net</a> and <a href="http://enet.bespin.org">Enet</a>. I haven't used Enet but I did use SDL net to write Odin's echo server example</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>C++</td>
+<td>Of course you could use Unix or Windows sockets if you don't care about cross platform support, but Asio is really cool. Its more verbose than the options above, but it does give C++ cross platform networking. It also serves as a general purpose async runtime for C++. It was pretty simple to use and the rewrite of the echo server with Asio was easy to put together</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Zig</td>
+<td>Zig's networking is actually very nice, but its not documented and will probably change until 1.0. Andrew Kelley, Zig's creator says that proper documentation will come at 1.0, which is a reasonable plan. I think once Zig's networking is documented it will easily move up this list. Zig's async stuff is very cool but not complete and more complex than Go so I don't think I could place it higher than #2</td>
+</tr>
+</table>
+
+### Overall
 lower score is better. No scores for the trival programs like Battle and Guess Number
+
 <table>
     <th>lang</th>
     <th>ppm & png</th>
