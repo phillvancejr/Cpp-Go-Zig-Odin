@@ -123,7 +123,7 @@ lower score is better. No scores for the trival programs like Battle and Guess N
         <td name="echo server">1</td>
         <td name="build system">n/a</td>
         <td name="platformer">n/a</td>
-        <td name="pong">1</td>
+        <td name="pong">n/a</td>
         <td name="total">tbd</td>
     </tr>
 </table>
