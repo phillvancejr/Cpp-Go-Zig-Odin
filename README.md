@@ -209,13 +209,13 @@ lower score is better. No scores for the trival programs like Battle and Guess N
     </tr>
     <tr>
         <td>nim</td> 
-        <td name="ppm">n/a</td>
+        <td name="ppm">tbd</td>
         <td name="http">1</td>
-        <td name="opengl">n/a</td>
+        <td name="opengl">tbd</td>
         <td name="echo server">1</td>
-        <td name="build system">n/a</td>
-        <td name="platformer">n/a</td>
-        <td name="pong">n/a</td>
+        <td name="build system">tbd</td>
+        <td name="platformer">tbd</td>
+        <td name="pong">tbd</td>
         <td name="total">tbd</td>
     </tr>
 </table>
