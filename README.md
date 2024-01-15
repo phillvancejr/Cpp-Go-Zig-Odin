@@ -1,6 +1,40 @@
 # C++ vs Go vs Zig vs Odin vs D vs Janet vs Swift vs Nim
 A series of small test programs to figure out which of the languages I like best. I don't plan on dropping C++ but I'd be willing to replace Go with Zig or Odin if I like them.
 
+#### UPDATE 08/28/23
+## Go vs C#
+I think C# has earned its place for me as a primary tool. I still love Go due to its simplicity so I'll still find use for it, especially for Wasm graphics demos since .NET wasm is too large currently, though if a future version of .NET wasm (or a js compiler) can produce small enough code I'll reconsider C# for browser graphic demos. Here are the pros and cons for me of Go vs C#:
+
+### Go
+* `+` Simple
+* `+` super easy C/ffi interop
+* `+` Easy and small distributable executables
+* `+` Feels like C plus
+* `+` Wails for UI is cool
+* `+` Fyne for UI is simple
+* `-` Wails for UI uses 4 langauges, html, css, javascript & Go
+* `-` Wails (and most webview based uis) on mac has startup flash/flicker
+* `-` Fyne doesn't support topmost/always on top windows
+
+### C#
+* `+` flexible distribution with .NET reliant programs which are very light and also self contained executables
+* `+` LINQ is cool
+* `+` Blazor is cool
+* `+` MAUI is cool
+* `+` Avalonia is for me, the best cross platform gui framework in any language
+* `+` Unity
+* `+` Godot
+* `+` ASP.NET <!--* `+` <a href="https://github.com/nimgl/nimgl">Beef</a> is a very C# like language that compiles to LLVM. Could use this if C# is too slow or large when doing graphics-->
+* `-` Non Native self contained .NET exe's are about 5 times the size of go
+* `-` wasm is currently very large at around 4 Mb
+* `?` always adding new often useful features, maybe the most rapidly developing language and platform. This could be good or bad but so far I like the direction its headed so mostly positive for me, but it does make the language/platform harder and harder to learn.
+
+I have use cases for both languages. If C# is too slow/large as in the case of wasm I'd probably use Go and if that is even larger/slower than I want I can always use C++. I think between Go, C#, C++ and Javascript, I've got most of my interests covered
+
+## C#
+C# enters the competition. I've been keeping an eye on .NET and C# for a while and the last few versions of .NET have been focusing on some very cool features that I've been waiting to test, namely: Wasm, Top Level Statements (C# 9) and new Native Aot with .NET 8.
+
+The Native AOT is very cool allowing C# to be compiled into small self contained executables and brings C# closer to Go in terms of distribution. The coolest feature for me personally is that Native AOT exes can not only call into foreign libraries but actually statically link native libraries as well. This makes C# a compelling choice especially for me, due to the .NET MAUI and Avalonia libraries for GUI programming. 
 ## C++
 I love C++. Despite its ugly bits, its still my favorite. And programming successfully in it makes me feel like a superhero even with trivial programs
 ## Go
@@ -177,13 +211,13 @@ lower score is better. No scores for the trival programs like Battle and Guess N
     <tr>
         <td>odin</td> 
         <td name="ppm">1</td>
-        <td name="http">4</td>
+        <td name="http">6</td>
         <td name="opengl">1</td>
         <td name="echo server">2</td>
         <td name="build system">2</td>
         <td name="platformer">3</td>
         <td name="pong">1</td>
-        <td name="total">14</td>
+        <td name="total">16</td>
     </tr>
     <tr>
         <td>d</td> 
@@ -209,14 +243,25 @@ lower score is better. No scores for the trival programs like Battle and Guess N
     </tr>
     <tr>
         <td>nim</td> 
-        <td name="ppm">tbd</td>
+        <td name="ppm">n/a</td>
         <td name="http">1</td>
-        <td name="opengl">tbd</td>
+        <td name="opengl">n/a</td>
         <td name="echo server">1</td>
-        <td name="build system">tbd</td>
-        <td name="platformer">tbd</td>
-        <td name="pong">tbd</td>
-        <td name="total">tbd</td>
+        <td name="build system">n/a</td>
+        <td name="platformer">n/a</td>
+        <td name="pong">n/a</td>
+        <td name="total">n/a</td>
+    </tr>
+    <tr>
+        <td>c#</td> 
+        <td name="ppm">n/a</td>
+        <td name="http">4</td>
+        <td name="opengl">n/a</td>
+        <td name="echo server">n/a</td>
+        <td name="build system">n/a</td>
+        <td name="platformer">n/a</td>
+        <td name="pong">n/a</td>
+        <td name="total">n/a</td>
     </tr>
 </table>
 

@@ -2,7 +2,7 @@ package main
 
 /*
 #cgo CFLAGS: -I../deps/glfw
-#cgo darwin LDFLAGS: -L../deps/glfw/mac -lglfw3 -framework Cocoa -framework IOKit -framework OpenGL
+#cgo darwin LDFLAGS: -L../deps/glfw/mac -lglfw3-arm -framework Cocoa -framework IOKit -framework OpenGL
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
@@ -83,6 +83,7 @@ func main() {
 	C.glBindVertexArray(vao)
 
 	sizeofVertices := C.long(len(vertices) * int(unsafe.Sizeof(C.float(0))))
+	fmt.Println("SIZE OF:", sizeofVertices)
 
 	var vbo C.uint
 	C.glGenBuffers(1, &vbo)

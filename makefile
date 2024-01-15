@@ -137,6 +137,12 @@ create2:
 	touch $(name)/$(name).cc
 	touch $(name)/$(name).d
 	touch $(name)/$(name).odin
+create3:
+# phase 3 Go, C# & Swift
+	mkdir $(name)
+	touch $(name)/$(name).go
+	touch $(name)/$(name).swift
+
 
 create-janet:
 	touch $(name)/$(name).janet

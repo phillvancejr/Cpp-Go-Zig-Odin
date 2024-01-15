@@ -27,6 +27,8 @@ battle/zig_battle
 battle/odin_battle
 battle/swift_battle
 battle/nim_battle
+battle/bin
+battle/obj
 
 build_system/cc_build_system
 build_system/go_build_system
@@ -56,6 +58,8 @@ guess_number/go_guess_number
 guess_number/zig_guess_number
 guess_number/odin_guess_number
 guess_number/swift_guess_number
+guess_number/bin
+guess_number/obj
 
 hot_reload/cc_hot_reload
 hot_reload/go_hot_reload
@@ -67,6 +71,8 @@ http_json/go_http_json
 http_json/zig_http_json
 http_json/odin_http_json
 http_json/nim_http_json
+http_json/bin
+http_json/obj
 
 lang_compiler/cc_lang_compiler
 lang_compiler/go_lang_compiler
@@ -77,6 +83,8 @@ langton_ant/cc_langton_ant
 langton_ant/go_langton_ant
 langton_ant/zig_langton_ant
 langton_ant/odin_langton_ant
+langton_ant/bin
+langton_ant/obj
 
 music_app/cc_music_app
 music_app/go_music_app
@@ -88,6 +96,10 @@ opengl/go_opengl
 opengl/go_opengl2
 opengl/zig_opengl
 opengl/odin_opengl
+opengl/opengl2
+opengl/opengl
+opengl/.build
+opengl/triangle-metal.swifT
 
 platformer/cc_platformer
 platformer/go_platformer

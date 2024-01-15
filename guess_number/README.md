@@ -44,6 +44,8 @@ Added swift on 22/6/1. The swift version is simple and it compiles decently quic
  ```
 ## Rust
 Added Rust on 22/6/1. Going to the Dark side. The Rust version is fine, pretty simple
+## C#
+Not much to say, it is simple. I do really like C#'s TryParse and out params, that makes for some succinct string parse attempts.
 ### compile times
 ranked according to cached times
 <table>

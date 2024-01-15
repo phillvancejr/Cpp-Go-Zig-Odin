@@ -34,6 +34,14 @@ Odin surprisingly was also the slowest to comile
 Pretty simple and I didn't run into any issues with the lack of static typing for this very simple example. The compiled version runs pretty fast: this example runs about as fast as the go version. The compile time was very surprising, only Go beat it!
 ## Nim
 Nim's version turns out to be the shortest version. Nim has tuple expressions and so returning `(warrior1,warrior2)` from if expressions was pretty cool
+## C#
+Looks like the C# version using tuples is actually a little shorter than the Nim version. For C# I'm less interested in the compile times since it is a JIT language. I'm more interested in distribution sizes
+
+    159  K  - .Net Reliant 
+    12.9 Mb - Self contained exe
+    2.4  Mb - Native Aot exe
+## Swift
+Simple, and I like Swifts first class tuples
 ### compile times
 ranked according to cached times
 <table>

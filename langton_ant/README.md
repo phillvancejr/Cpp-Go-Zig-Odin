@@ -55,6 +55,8 @@ board :: [?]int{ 0..width*height=1 }
 ```
 ## Janet
 Janet compiled a little slower than I expected for this simple project, but it was cool to develop it live
+## C#
+C# was not bad. I chose to use top level statements for this example but I think when a program gets to be this size it might be better to just write it in the full class style to keep everything organized, specifically the main method. I could have written a top level main method, but at that point it isn't that much more work to just write it in the normal C# style with static void main. I did really like C#'s builtin ability to manipulate the terminal colors and cursor as well as read input using the Console class. Very good
 ### compile times
 ranked according to cached times
 <table>

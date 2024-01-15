@@ -28,12 +28,20 @@ Swift's is very easy to use and built in, tied with Go
 (sigh...) I mean, it works right lol. Rust's implementation looks really simple and is the shortest at 12 lines. But Rust takes so long to compile, so long. My release build took 1m and 14s to build and gave me a 4.2MB exectuable, 2.9MB stripped, probably due to the enormous quantity of dependencies that I watched as a cascading green wall while compiling. As a plus, it's smaller than the Go version which is 6.4MB, but now we're comparing a low level sytem language (Rust) to a GC'd language (Go) so I'm not sure Rust being smaller than Go is much of a compliment. Still, the code itself is very nice. Its worth noting that I have done enough Rust to not be bothered by the borrow checker, compile times and C interop friction (unsafe!) are the main pain points I have with Rust. For debug it compiled faster than Zig, but with a 15MB executable so, release is all I tracked in the rankings below.
 ## Nim
 Nim's version is really short and simple. I'm surprised that I actaully liked it more than Go, so first place for Nim!
+## C#
+The C# version is also fairly short, though I had to do some research on how to get it to work with trimming. Larger than some of the others but still decent. The native aot size is much larger than the simple battle and guess number examples, and in fact is larger than the normal non native self contained version. It was easier to use than Zig or Odin so I'll put it above them but due to the size if I need some json serialization stuff I'll probably use Go or Swift
+
+    160  K  - .Net Reliant 
+    16.8 Mb - Self contained exe
+    19.1 Mb - Native Aot exe
+
 ### overall rankings
 1. Nim
 2. Go & Swift
 3. C++
-4. Zig
-5. Odin
+4. C#
+5. Zig
+6. Odin
 ### compile times
 ranked according to cached times.
 <table>

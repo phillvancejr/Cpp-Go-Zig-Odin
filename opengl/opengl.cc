@@ -2,8 +2,10 @@
 #define GL_SILENCE_DEPRECATION
 #endif
 
-#include <glad/glad.h>
+// don't need glad on mac
+//#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <OpenGl/gl3.h>
 #include <stdio.h>
 
 #include <string>
@@ -29,11 +31,11 @@ struct Window {
             return;
         }
         glfwMakeContextCurrent(window);
-        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-        {
-            puts("glad init failure!");
-            return;
-        }
+        //if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+        //{
+        //    puts("glad init failure!");
+        //    return;
+        //}
     }
 
     ~Window(){
@@ -153,8 +155,6 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         // draw triangle
-        //glUseProgram(shader);
-        //glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
