@@ -1,0 +1,9 @@
+module GLFW {
+    header "../deps/glfw/GLFW/glfw3.h"
+    link "../deps/glfw/mac/glfw3"
+    link framework "Cocoa"
+    link framework "IOKit"
+    link framework "OpenGL"
+    export *
+}
+
